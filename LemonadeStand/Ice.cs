@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Customer
+    class Ice : Items
     {
-        //member variables (HAS A)
-
-        //constructor
-        public Customer()
+        //member variables
+        public Ice()
         {
 
         }
-
-        //member methods (CAN DO)
+        //member methods
     }
 }

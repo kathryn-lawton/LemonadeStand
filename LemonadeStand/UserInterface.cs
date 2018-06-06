@@ -8,5 +8,17 @@ namespace LemonadeStand
 {
     class UserInterface
     {
+        //member variables (HAS A)
+
+        //constructor
+        public UserInterface()
+        {
+
+        }
+
+        //member methods (CAN DO)
+        //welcome player
+        //print instructions
+
     }
 }

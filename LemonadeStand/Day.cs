@@ -8,5 +8,17 @@ namespace LemonadeStand
 {
     class Day
     {
+        //member variables (HAS A)
+        //customers
+        //eather
+        //report (profit/loss, remaining inventory)
+        Weather weather = new Weather();
+        //constructor
+        public Day()
+        {
+
+        }
+
+        //member methods (CAN DO)
     }
 }
