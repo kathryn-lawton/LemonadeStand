@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Ice : Item
+    abstract class Item
     {
         //member variables
-        public Ice()
+        public string name;
+        public double price;
+        public Item()
         {
-            name = "ice";
-            price = .02;
+           
         }
         //member methods
+        
        
     }
 }

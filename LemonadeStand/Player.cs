@@ -10,14 +10,16 @@ namespace LemonadeStand
     {
         //member variables (HAS A)
         public string name;
-        public int money;
-        public Inventory inventory = new Inventory();
+        public Inventory inventory;
+        public Recipe recipe;
 
         //constructor
         public Player(string playerName)
         {
             this.name = playerName;
-            this.money = 20;
+            inventory = new Inventory();
+            recipe = new Recipe();
+
         }
 
         //member methods (CAN DO)

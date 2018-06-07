@@ -12,13 +12,23 @@ namespace LemonadeStand
         //customers
         //eather
         //report (profit/loss, remaining inventory)
-        Weather weather = new Weather();
+        public Weather weather;
+
         //constructor
         public Day()
         {
-
+            this.weather = new Weather();
         }
 
-        //member methods (CAN DO)
+
+
+        //member methods (CAN DO)  
+        public void RunDay()
+        {
+          weather.DisplayDailyWeather();
+        }
+
+
+
     }
 }

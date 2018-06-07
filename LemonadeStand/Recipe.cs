@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Items
+    class Recipe
     {
-        //member variables
-        public Items()
+        //mv
+
+        public Recipe()
         {
 
         }
-        //member methods
+
+        //mm
     }
 }

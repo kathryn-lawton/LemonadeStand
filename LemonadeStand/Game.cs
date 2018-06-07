@@ -9,11 +9,13 @@ namespace LemonadeStand
     class Game
     {
         //member variables (HAS A)
+        public Player player;
+        public Day day;
 
         //constructor
         public Game()
         {
-            
+                
         }
 
         //member methods (CAN DO)
@@ -28,11 +30,17 @@ namespace LemonadeStand
         public void RunGame()
         {
             string playerName = GetPlayerName();
-            Player player = new Player(playerName);
+            player = new Player(playerName);
+            day = new Day();
+            day.RunDay();
 
-            
+
+
+
 
         }
+
+       
 
     }
 }

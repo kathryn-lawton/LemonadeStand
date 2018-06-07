@@ -10,6 +10,9 @@ namespace LemonadeStand
     {
         //member variables (HAS A)
         public List<string> conditions = new List<string>() { "sunny", "hazy", "cloudy", "overcast", "rainy" };
+        public int dailyTemperature;
+        public string dailyCondition;
+       
 
         //constructor
         public Weather()
@@ -36,12 +39,14 @@ namespace LemonadeStand
         
         public void GetDailyWeather()
         {
-            string dailyCondition = GetDailyCondition();
-            int dailyTemperature = GetDailyTemperature();
+            
         }
 
-        public void DisplayDailyWeather(int dailyTemperature, string dailyCondition)
+        public void DisplayDailyWeather()
         {
+            dailyTemperature = GetDailyTemperature();
+            dailyCondition = GetDailyCondition();
+
             Console.WriteLine($"Today's weather is {dailyTemperature} and {dailyCondition}.");
             Console.ReadLine();
         }
@@ -58,7 +63,7 @@ namespace LemonadeStand
 
         public void CreateForecast()
         {
-
+     
         }
     }
 }
