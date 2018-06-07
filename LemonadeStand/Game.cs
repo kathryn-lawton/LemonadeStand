@@ -15,7 +15,7 @@ namespace LemonadeStand
         //constructor
         public Game()
         {
-                
+            day = new Day();        
         }
 
         //member methods (CAN DO)
@@ -31,14 +31,15 @@ namespace LemonadeStand
         {
             string playerName = GetPlayerName();
             player = new Player(playerName);
-            day = new Day();
             day.RunDay();
-
-
+            player.inventory.DisplayInventory();
+           
 
 
 
         }
+
+       
 
        
 

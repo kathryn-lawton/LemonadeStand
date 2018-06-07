@@ -13,6 +13,7 @@ namespace LemonadeStand
         {
             name = "ice";
             price = .02;
+            
         }
         //member methods
        

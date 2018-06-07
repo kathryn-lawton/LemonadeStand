@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Cup : Item
+     public class Cup : Item
     {
         //mv
 
@@ -14,6 +14,7 @@ namespace LemonadeStand
         {
             name = "cup";
             price = .01;
+            
 
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Recipe
+    public class Recipe
     {
         //mv
 
@@ -16,5 +16,7 @@ namespace LemonadeStand
         }
 
         //mm
+
+      
     }
 }

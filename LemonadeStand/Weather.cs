@@ -37,33 +37,24 @@ namespace LemonadeStand
             return dailyTemperature;
         }
         
-        public void GetDailyWeather()
-        {
-            
-        }
 
-        public void DisplayDailyWeather()
+        public void GetDailyWeather()
         {
             dailyTemperature = GetDailyTemperature();
             dailyCondition = GetDailyCondition();
 
-            Console.WriteLine($"Today's weather is {dailyTemperature} and {dailyCondition}.");
+        }
+
+        public void DisplayDailyWeather()
+        {
+            Console.WriteLine($"Today's actual weather is {dailyTemperature} and {dailyCondition}.");
+            
+        }
+
+        public void DisplayWeeklyForecast()
+        {
+            Console.WriteLine($"This week's forcast is {dailyTemperature} and {dailyCondition}.");
             Console.ReadLine();
-        }
-
-        public void GetForecastCondition()
-        {
-
-        }
-
-        public void GetForecastTemperature()
-        {
-
-        }
-
-        public void CreateForecast()
-        {
-     
         }
     }
 }

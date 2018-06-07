@@ -9,16 +9,18 @@ namespace LemonadeStand
     public class Inventory
     {
         //member variables (HAS A)
-        public double money = 20.00;
         List<Lemon> lemons = new List<Lemon>();
-        List<Sugar> sugar = new List<Sugar>();
         List<Ice> ice = new List<Ice>();
+        List<Sugar> sugar = new List<Sugar>();
         List<Cup> cups = new List<Cup>();
+
 
 
         //constructor
         public Inventory()
         {
+
+
             
 
         }
@@ -35,9 +37,22 @@ namespace LemonadeStand
             Console.WriteLine($"You currently have {lemons.Count} lemons.");
         }
 
+        public void RemoveLemon(Player player)
+        {
+            try
+            {
+                
+            }
+
+            catch(Exception)
+            {
+
+            }
+        }
+
         public void AddSugar(int NumberOfSugarNeeded)
         {
-            for(int i = 0; i < NumberOfSugarNeeded; i++)
+            for (int i = 0; i < NumberOfSugarNeeded; i++)
             {
                 Sugar sugar = new Sugar();
                 this.sugar.Add(sugar);
@@ -47,7 +62,7 @@ namespace LemonadeStand
 
         public void AddIce(int NumberOfIceNeeded)
         {
-            for(int i = 0; i < NumberOfIceNeeded; i++)
+            for (int i = 0; i < NumberOfIceNeeded; i++)
             {
                 Ice ice = new Ice();
                 this.ice.Add(ice);
@@ -57,17 +72,19 @@ namespace LemonadeStand
 
         public void AddCup(int NumberOfCupsNeeded)
         {
-            for(int i = 0; i < NumberOfCupsNeeded; i++)
+            for (int i = 0; i < NumberOfCupsNeeded; i++)
             {
                 Cup cup = new Cup();
                 cups.Add(cup);
             }
             Console.WriteLine($"You currently have {cups.Count} cups.");
         }
+
         public void DisplayInventory()
         {
-            
+            Console.WriteLine($"You currently have {lemons.Count} lemons, {sugar.Count} sugar, {ice.Count} ice, and {cups.Count} cups.");
         }
+     
 
  
     }
