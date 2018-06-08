@@ -12,12 +12,13 @@ namespace LemonadeStand
         public List<string> conditions = new List<string>() { "sunny", "hazy", "cloudy", "overcast", "rainy" };
         public int dailyTemperature;
         public string dailyCondition;
+		
        
 
         //constructor
         public Weather()
         {
-
+			dailyCondition = GetDailyCondition();
         }
 
         //member methods (CAN DO)
@@ -56,5 +57,6 @@ namespace LemonadeStand
             Console.WriteLine($"This week's forcast is {dailyTemperature} and {dailyCondition}.");
             Console.ReadLine();
         }
+
     }
 }

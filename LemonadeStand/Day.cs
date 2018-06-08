@@ -13,12 +13,14 @@ namespace LemonadeStand
         //eather
         //report (profit/loss, remaining inventory)
         public Weather weather;
-        List<string> days = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"}; 
+        //public List<string> days = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+		public string name;
 
-        //constructor
-        public Day()
+		//constructor
+		public Day(string name)
         {
             this.weather = new Weather();
+			this.name = name;
         }
 
 
@@ -26,28 +28,31 @@ namespace LemonadeStand
         //member methods (CAN DO)  
      
 
-        public void MakeForecast()
+        public void MakeForecast(List <Day> days)
         {
             for(int i = 0; i < days.Count; i++)
             {
                 int dailyTemperature = weather.GetDailyTemperature();
                 string dailyCondition = weather.GetDailyCondition();
-                Console.WriteLine($"The weather on {days[i]} is {dailyTemperature} and {dailyCondition}.");
+                Console.WriteLine($"Weekly Forecast: The weather on {days[i].name} is {dailyTemperature} and {dailyCondition}.");
                 Console.ReadLine();
 
 
 
             }
-        }
+		}
 
-  
+		
 
-        public void RunDay()
+
+		public void RunDay(List <Day> days)
         {
-            MakeForecast();
-            weather.GetDailyWeather();
-            weather.DisplayDailyWeather();
 
+			Console.WriteLine($"Today is {days[0].name}!");
+			weather.GetDailyWeather();
+			weather.DisplayDailyWeather();
+			
+			
 
 
         }

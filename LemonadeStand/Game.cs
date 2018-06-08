@@ -8,14 +8,22 @@ namespace LemonadeStand
 {
     class Game
     {
-        //member variables (HAS A)
+        
         public Player player;
-        public Day day;
-
+		public List<Day> days = new List<Day>();
+		
+	
         //constructor
         public Game()
         {
-            day = new Day();        
+			days.Add(new Day("Monday"));
+			days.Add(new Day("Tuesday"));
+			days.Add(new Day("Wednesday"));
+			days.Add(new Day("Thursday"));
+			days.Add(new Day("Friday"));
+			days.Add(new Day("Saturday"));
+			days.Add(new Day("Sunday"));
+		      
         }
 
         //member methods (CAN DO)
@@ -29,17 +37,22 @@ namespace LemonadeStand
 
         public void RunGame()
         {
-            string playerName = GetPlayerName();
-            player = new Player(playerName);
-            day.RunDay();
-            player.inventory.DisplayInventory();
-           
+			for (int i = 0; i < 7; i++)
+			{
+				
+				string playerName = GetPlayerName();
+				player = new Player(playerName);
+				days[i].MakeForecast(days);
+				days[i].RunDay(days);
+				player.inventory.DisplayInventory();
+				
+			}           
 
 
 
         }
 
-       
+   
 
        
 

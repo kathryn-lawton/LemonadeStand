@@ -18,7 +18,7 @@ namespace LemonadeStand
         {
             this.name = playerName;
             inventory = new Inventory();
-            recipe = new Recipe();
+            recipe = new Recipe(inventory);
 
         }
 

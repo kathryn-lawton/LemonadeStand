@@ -41,7 +41,11 @@ namespace LemonadeStand
         {
             try
             {
-                
+				int lemonsToRemove = player.recipe.RemoveLemonsFromRecipe();
+				for(int i = 0; i < lemonsToRemove; i++)
+				{
+					lemons.RemoveAt(0);
+				}
             }
 
             catch(Exception)
@@ -60,7 +64,24 @@ namespace LemonadeStand
             Console.WriteLine($"You currently have {sugar.Count} sugar.");
         }
 
-        public void AddIce(int NumberOfIceNeeded)
+		public void RemoveSugar(Player player)
+		{
+			try
+			{
+				int sugarToRemove = player.recipe.RemoveSugarFromRecipe();
+				for (int i = 0; i < sugarToRemove; i++)
+				{
+					sugar.RemoveAt(0);
+				}
+			}
+
+			catch (Exception)
+			{
+
+			}
+		}
+
+		public void AddIce(int NumberOfIceNeeded)
         {
             for (int i = 0; i < NumberOfIceNeeded; i++)
             {
@@ -70,7 +91,24 @@ namespace LemonadeStand
             Console.WriteLine($"You currently have {ice.Count} ice.");
         }
 
-        public void AddCup(int NumberOfCupsNeeded)
+		public void RemoveIce(Player player)
+		{
+			try
+			{
+				int iceToRemove = player.recipe.RemoveIceFromRecipe();
+				for (int i = 0; i < iceToRemove; i++)
+				{
+					ice.RemoveAt(0);
+				}
+			}
+
+			catch (Exception)
+			{
+
+			}
+		}
+
+		public void AddCup(int NumberOfCupsNeeded)
         {
             for (int i = 0; i < NumberOfCupsNeeded; i++)
             {
@@ -84,8 +122,33 @@ namespace LemonadeStand
         {
             Console.WriteLine($"You currently have {lemons.Count} lemons, {sugar.Count} sugar, {ice.Count} ice, and {cups.Count} cups.");
         }
-     
 
+		public void RemoveCups(Player player)
+		{
+			try
+			{
+				int cupsToRemove = player.recipe.RemoveCupsFromRecipe();
+				for (int i = 0; i < cupsToRemove; i++)
+				{
+					ice.RemoveAt(0);
+				}
+			}
+			catch (Exception)
+			{
+				Console.WriteLine("");
+			}
+
+			
+		}
+
+
+		//removes after lemonade made
+		public void RemoveInventoryAfterMakingLemonade(Player player)
+		{
+			RemoveLemon(player);
+			RemoveSugar(player);
+			RemoveIce(player);
+		}
  
     }
 }
