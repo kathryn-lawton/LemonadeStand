@@ -8,56 +8,42 @@ namespace LemonadeStand
 {
     class Day
     {
-        //member variables (HAS A)
-        //customers
-        //eather
-        //report (profit/loss, remaining inventory)
-        public Weather weather;
-        //public List<string> days = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
-		public string name;
+		//member variables (HAS A)
+		//customers
+		//eather
+		//report (profit/loss, remaining inventory)
+		public string Name { get; set; }
+		public string Condition { get; set; }
+		public int Temperature { get; set; }
+		public int PitchersProduced { get; set; }
+		public List<Customer> customers;
 
 		//constructor
-		public Day(string name)
+		public Day(string name, Weather weather)
         {
-            this.weather = new Weather();
-			this.name = name;
+			this.Name = name;
+			this.Condition = weather.CreateDailyCondition();
+			this.Temperature = weather.CreateDailyTemperature();
+			this.customers = new List<Customer> { new Customer() };
         }
-
-
 
         //member methods (CAN DO)  
-     
-
-        public void MakeForecast(List <Day> days)
-        {
-            for(int i = 0; i < days.Count; i++)
-            {
-                int dailyTemperature = weather.GetDailyTemperature();
-                string dailyCondition = weather.GetDailyCondition();
-                Console.WriteLine($"Weekly Forecast: The weather on {days[i].name} is {dailyTemperature} and {dailyCondition}.");
-                Console.ReadLine();
-
-
-
-            }
+		public int CreateCustomers()
+		{
+			Random random = new Random();
+			int numberOfDayCustomers = random.Next(50, 100);
+				return numberOfDayCustomers;
+			
 		}
 
-		
-
-
-		public void RunDay(List <Day> days)
+		public void RunDay()
         {
-
-			Console.WriteLine($"Today is {days[0].name}!");
-			weather.GetDailyWeather();
-			weather.DisplayDailyWeather();
-			
-			
-
-
+			CreateCustomers();
         }
 
-
-
-    }
+		public void DisplayWeather()
+		{
+			Console.WriteLine($"{this.Name}'s weather is {this.Temperature} and {this.Condition}.");
+		}
+	}
 }

@@ -10,15 +10,11 @@ namespace LemonadeStand
     {
         //mv
 
-        public Cup()
+        public Cup() :
+			base("cup", 0.01)
         {
-            name = "cup";
-            price = .01;
-            
-
         }
 
         //mm
-
     }
 }

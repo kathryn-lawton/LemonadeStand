@@ -9,6 +9,7 @@ namespace LemonadeStand
     class Customer
     {
         //member variables (HAS A)
+		
 
         //constructor
         public Customer()

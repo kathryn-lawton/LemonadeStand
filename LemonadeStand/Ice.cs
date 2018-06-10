@@ -9,11 +9,9 @@ namespace LemonadeStand
     class Ice : Item
     {
         //member variables
-        public Ice()
-        {
-            name = "ice";
-            price = .02;
-            
+        public Ice() :
+			base("ice", 0.02)
+        {   
         }
         //member methods
        

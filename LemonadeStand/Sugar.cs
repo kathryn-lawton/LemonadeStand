@@ -9,10 +9,9 @@ namespace LemonadeStand
     class Sugar : Item
     {
         //member variables
-        public Sugar()
+        public Sugar() :
+			base("sugar", 0.05)
         {
-            name = "sugar";
-            price = .05;
         }
 
         //member methods

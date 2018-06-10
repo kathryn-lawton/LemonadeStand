@@ -10,53 +10,29 @@ namespace LemonadeStand
     {
         //member variables (HAS A)
         public List<string> conditions = new List<string>() { "sunny", "hazy", "cloudy", "overcast", "rainy" };
-        public int dailyTemperature;
-        public string dailyCondition;
-		
-       
+		private Random Random { get; set; }
 
-        //constructor
-        public Weather()
+		//constructor
+		public Weather()
         {
-			dailyCondition = GetDailyCondition();
+			this.Random = new Random();
         }
 
         //member methods (CAN DO)
 
-        public string GetDailyCondition()
+        public string CreateDailyCondition()
         {
-            Random random = new Random();
-            int index = random.Next(conditions.Count);
+            int index = this.Random.Next(conditions.Count);
             string condition = conditions[index];
-                return condition;
 
-        }
-        public int GetDailyTemperature()
+			return condition;
+		}
+
+        public int CreateDailyTemperature()
         {
-            Random random = new Random();
-            int dailyTemperature = random.Next(50,100);
+            int dailyTemperature = this.Random.Next(50,100);
+
             return dailyTemperature;
         }
-        
-
-        public void GetDailyWeather()
-        {
-            dailyTemperature = GetDailyTemperature();
-            dailyCondition = GetDailyCondition();
-
-        }
-
-        public void DisplayDailyWeather()
-        {
-            Console.WriteLine($"Today's actual weather is {dailyTemperature} and {dailyCondition}.");
-            
-        }
-
-        public void DisplayWeeklyForecast()
-        {
-            Console.WriteLine($"This week's forcast is {dailyTemperature} and {dailyCondition}.");
-            Console.ReadLine();
-        }
-
     }
 }

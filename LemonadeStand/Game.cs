@@ -11,19 +11,29 @@ namespace LemonadeStand
         
         public Player player;
 		public List<Day> days = new List<Day>();
-		
+		public Weather weather;
+
+		private List<string> daysOfTheWeek = new List<string>
+		{
+			"Monday",
+			"Tuesday",
+			"Wednesday",
+			"Thursday",
+			"Friday",
+			"Saturday",
+			"Sunday"
+		};
 	
         //constructor
         public Game()
         {
-			days.Add(new Day("Monday"));
-			days.Add(new Day("Tuesday"));
-			days.Add(new Day("Wednesday"));
-			days.Add(new Day("Thursday"));
-			days.Add(new Day("Friday"));
-			days.Add(new Day("Saturday"));
-			days.Add(new Day("Sunday"));
-		      
+			this.weather = new Weather();
+			
+			// Create a week
+			foreach(string dayName in daysOfTheWeek)
+			{
+				days.Add(new Day(dayName, this.weather));
+			} 
         }
 
         //member methods (CAN DO)
@@ -35,26 +45,37 @@ namespace LemonadeStand
             return playername;
         }
 
-        public void RunGame()
-        {
-			for (int i = 0; i < 7; i++)
+		public void GetWeatherForecast()
+		{
+			Console.WriteLine("This week's weather forecast is...");
+			
+			foreach(Day day in days)
 			{
-				
-				string playerName = GetPlayerName();
-				player = new Player(playerName);
-				days[i].MakeForecast(days);
-				days[i].RunDay(days);
-				player.inventory.DisplayInventory();
-				
-			}           
+				day.DisplayWeather();
+			}
+		}
 
+		public void RunGame()
+		{
+			// Create Player
+			string playerName = GetPlayerName();
+			player = new Player(playerName);
 
+			// Forecast
+			GetWeatherForecast();
 
-        }
+			foreach (Day day in days)
+			{
+				Console.WriteLine($"Today is {day.Name}.");
+				day.DisplayWeather();
+				player.Recipe.DecideRecipe();
 
-   
+				// player.inventory.DisplayInventory();
+				// player.recipe.DecideRecipe();
+				// player.recipe.ChooseNumberOfPitchers();
 
-       
-
+				//day.RunDay();
+			}
+		}
     }
 }

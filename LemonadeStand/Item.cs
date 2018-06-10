@@ -9,15 +9,14 @@ namespace LemonadeStand
     public abstract class Item
     {
         //member variables
-        public string name;
-        public double price;
+        public string Name { get; set; }
+        public double Price { get; set; }
 
-        public Item()
+        public Item(string name, double price)
         {
-           
+			this.Name = name;
+			this.Price = price;
         }
         //member methods
-        
-       
     }
 }
