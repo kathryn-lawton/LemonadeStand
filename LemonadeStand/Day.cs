@@ -16,7 +16,10 @@ namespace LemonadeStand
 		public string Condition { get; set; }
 		public int Temperature { get; set; }
 		public int PitchersProduced { get; set; }
+		public int CupsSold { get; set; }
 		public List<Customer> customers;
+		public double pricePerCup;
+
 
 		//constructor
 		public Day(string name, Weather weather)
@@ -25,21 +28,22 @@ namespace LemonadeStand
 			this.Condition = weather.CreateDailyCondition();
 			this.Temperature = weather.CreateDailyTemperature();
 			this.customers = new List<Customer> { new Customer() };
-        }
+			this.pricePerCup = 0.25;
+		}
 
         //member methods (CAN DO)  
-		public int CreateCustomers()
+		public void CreateCustomers()
 		{
 			Random random = new Random();
 			int numberOfDayCustomers = random.Next(50, 100);
-				return numberOfDayCustomers;
 			
+			for (int i = 0; i < numberOfDayCustomers; i++)
+			{
+				customers.Add(new Customer());
+			}
 		}
 
-		public void RunDay()
-        {
-			CreateCustomers();
-        }
+		
 
 		public void DisplayWeather()
 		{

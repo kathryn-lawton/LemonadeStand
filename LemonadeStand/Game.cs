@@ -13,16 +13,8 @@ namespace LemonadeStand
 		public List<Day> days = new List<Day>();
 		public Weather weather;
 
-		private List<string> daysOfTheWeek = new List<string>
-		{
-			"Monday",
-			"Tuesday",
-			"Wednesday",
-			"Thursday",
-			"Friday",
-			"Saturday",
-			"Sunday"
-		};
+		private List<string> daysOfTheWeek = new List<string> { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+
 	
         //constructor
         public Game()
@@ -69,12 +61,11 @@ namespace LemonadeStand
 				Console.WriteLine($"Today is {day.Name}.");
 				day.DisplayWeather();
 				player.Recipe.DecideRecipe();
+				player.Inventory.DisplayInventory();
+				player.DecidePurchases();
+				day.CreateCustomers();
 
-				// player.inventory.DisplayInventory();
-				// player.recipe.DecideRecipe();
-				// player.recipe.ChooseNumberOfPitchers();
-
-				//day.RunDay();
+				
 			}
 		}
     }

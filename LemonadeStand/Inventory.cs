@@ -19,31 +19,75 @@ namespace LemonadeStand
         {
         }
 
-        //member methods (CAN DO)
-        public void AddLemons(int numberOfLemonsToAdd)
-        {
-            for(int i = 0; i < numberOfLemonsToAdd; i++)
-            {
-                Lemon lemon = new Lemon();
-                lemons.Add(lemon);
-            }
-            Console.WriteLine($"You currently have {lemons.Count} lemons after {numberOfLemonsToAdd} were added.");
+		public void AddItems(List<Item> items)
+		{
+			
+			foreach (Item item in items)
+			{
+				switch(item.Name)
+				{
+					case "lemon":
+						lemons.Add((Lemon)item);
+						break;
+					case "sugar":
+						sugar.Add((Sugar)item);
+						break;
+					case "ice":
+						ice.Add((Ice)item);
+						break;
+					case "cups":
+						cups.Add((Cup)item);
+						break;
+					default:
+						break;
 
+				}
+			}
+			Console.WriteLine($"You have increased your {items[0].Name} inventory by {items.Count}.");
 		}
 
-        public void RemoveLemons(int numberOfLemonsToRemove)
+       //TODO remove method 
+        public void RemoveItems(List <Item> items)
         {
-			if(numberOfLemonsToRemove > this.lemons.Count)
+			foreach (Item item in items)
 			{
-				Console.WriteLine($"You only have {this.lemons.Count} lemons. You cannot remove {numberOfLemonsToRemove} lemons.");
-				// TODO, return something here
+				switch (item.Name)
+				{
+					case "lemon":
+						for (int i = 0; i < items.Count; i++)
+						{
+							lemons.RemoveAt(0);
+						}
+;						break;
+					case "sugar":
+						sugar.RemoveAt(0);
+						for(int i = 0; i < items.Count; i++)
+						{
+							sugar.RemoveAt(0);
+						}
+						break;
+					case "ice":
+						
+						for(int i = 0; i < items.Count; i++)
+						{
+							ice.RemoveAt(0);
+						}
+						break;
+					case "cups":
+						for(int i = 0; i < items.Count; i++)
+						{
+							cups.RemoveAt(0);
+						}
+						break;
+					default:
+						break;
+
+				}
 			}
-			else
-			{
-				this.lemons.RemoveRange(0, numberOfLemonsToRemove);
-				Console.WriteLine($"You now have {this.lemons.Count} after removing {numberOfLemonsToRemove}.");
-			}
-        }
+
+
+			//return bool if the remove was successful or false if the remove failed (i.e. only 5 items but want to remove 5)
+		}
 
         public void DisplayInventory()
         {

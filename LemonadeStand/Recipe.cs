@@ -12,12 +12,14 @@ namespace LemonadeStand
 		public int numberOfLemons;
 		public int numberOfIce;
 		public int numberOfSugar;
+		
 
         public Recipe()
         {
 			this.numberOfLemons = 4;
 			this.numberOfSugar = 4;
 			this.numberOfIce = 20;
+			
         }
 
         //mm
@@ -76,5 +78,8 @@ namespace LemonadeStand
 		{
 			Console.WriteLine($"Your current recipe requires {this.numberOfLemons} lemons, {this.numberOfSugar} sugar, and {this.numberOfIce} ice for each pitcher of lemonade.");
 		}
+
+		
+
 	}
 }
