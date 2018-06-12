@@ -40,33 +40,38 @@ namespace LemonadeStand
 			string prompt = $"How many items would you like to purchase? Please enter a number greater than or equal to 0.";
 			int numberOfItems = UserInterface.GetUserPositiveNumber(prompt);
 
+			double price = 0;
 			List<Item> items = new List<Item>();
 			for(int i = 0; i < numberOfItems; ++i)
 			{
 				switch (itemName)
 				{
 					case "lemon":
+						price = Lemon.price;
 						items.Add(new Lemon());
 						break;
 					case "sugar":
+						price = Sugar.price;
 						items.Add(new Sugar());
 						break;
 					case "ice":
+						price = Ice.price;
 						items.Add(new Ice());
 						break;
 					case "cup":
+						price = Cup.price;
 						items.Add(new Cup());
 						break;
 				}
 			}
 
-			if(items[0].Price * numberOfItems > Money)
+			if(price * numberOfItems > Money)
 			{
-				Console.WriteLine($"You do not have enough money to buy {numberOfItems} {itemName}. It costs ${items[0].Price * numberOfItems} and you have ${Money}.");
+				Console.WriteLine($"You do not have enough money to buy {numberOfItems} {itemName}. It costs ${price * numberOfItems} and you have ${Money}.");
 			}
 			else
 			{
-				Money -= items[0].Price * numberOfItems;
+				Money -= price * numberOfItems;
 				Console.WriteLine($"You have ${Money} after your purchase.");
 
 				Inventory.AddItems(items); 
@@ -75,33 +80,23 @@ namespace LemonadeStand
 			DecideIfBuyingItems();
 		}
 
-		//public void DeterminePricePerCup()
-		//{
-			//Console.WriteLine($"The current price per cup of lemonade is ${}. Would you like to change the price? Please enter 'yes' or 'no'.");
-			//string input = Console.ReadLine().ToLower();
-			//if (input == "yes")
-			//{
+		public bool MakeAPitcher()
+		{
+			if (Recipe.numberOfLemons <= Inventory.lemons.Count
+				&& Recipe.numberOfIce <= Inventory.ice.Count
+				&& Recipe.numberOfSugar <= Inventory.sugar.Count
+				&& Inventory.cups.Count > 0)
+			{
+				Inventory.RemoveItems("lemon", Recipe.numberOfLemons);
+				Inventory.RemoveItems("sugar", Recipe.numberOfSugar);
+				Inventory.RemoveItems("ice", Recipe.numberOfIce);
 
-				//Console.WriteLine($"Today's price per cup of lemonade is ${this.pricePerCup}.");
-			//}
-			//else if (input == "no")
-			//{
-				//Console.WriteLine($"Today's price per cup of lemonade is ${this.pricePerCup}.");
-			//}
-			//else
-			//{
-				//Console.WriteLine("Your input was invalid. Please enter valid input.");
-			//}
-		//}
-
-		//public double ChangePricePerCup()
-		//{
-			//double pricePerCup = 0.0;
-			//Console.WriteLine("How much would you like to charge per cup of lemonade. Please enter a number that is more than 0.");
-			//pricePerCup = double.Parse(Console.ReadLine());
-			//return pricePerCup;
-		
-		//}
-
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 }

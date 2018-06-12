@@ -79,7 +79,10 @@ namespace LemonadeStand
 			Console.WriteLine($"Your current recipe requires {this.numberOfLemons} lemons, {this.numberOfSugar} sugar, and {this.numberOfIce} ice for each pitcher of lemonade.");
 		}
 
-		
+		public double PriceOfPitcher()
+		{
+			return numberOfLemons * Lemon.price + numberOfSugar * Sugar.price + numberOfIce * Ice.price;
+		}
 
 	}
 }

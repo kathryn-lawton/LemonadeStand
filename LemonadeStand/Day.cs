@@ -9,17 +9,12 @@ namespace LemonadeStand
     class Day
     {
 		//member variables (HAS A)
-		//customers
-		//eather
-		//report (profit/loss, remaining inventory)
+		
 		public string Name { get; set; }
 		public string Condition { get; set; }
 		public int Temperature { get; set; }
-		public int PitchersProduced { get; set; }
-		public int CupsSold { get; set; }
-		public List<Customer> customers;
-		public double pricePerCup;
-
+		public double Profit { get; set; }
+		public int NumberOfCupsSold { get; set; }
 
 		//constructor
 		public Day(string name, Weather weather)
@@ -27,27 +22,18 @@ namespace LemonadeStand
 			this.Name = name;
 			this.Condition = weather.CreateDailyCondition();
 			this.Temperature = weather.CreateDailyTemperature();
-			this.customers = new List<Customer> { new Customer() };
-			this.pricePerCup = 0.25;
 		}
 
         //member methods (CAN DO)  
-		public void CreateCustomers()
-		{
-			Random random = new Random();
-			int numberOfDayCustomers = random.Next(50, 100);
-			
-			for (int i = 0; i < numberOfDayCustomers; i++)
-			{
-				customers.Add(new Customer());
-			}
-		}
-
-		
-
 		public void DisplayWeather()
 		{
 			Console.WriteLine($"{this.Name}'s weather is {this.Temperature} and {this.Condition}.");
+		}
+
+		public void SaveDay(double profit, int numberOfCupsSold)
+		{
+			this.Profit = profit;
+			this.NumberOfCupsSold = numberOfCupsSold;
 		}
 	}
 }

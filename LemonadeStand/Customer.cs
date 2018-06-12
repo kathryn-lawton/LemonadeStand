@@ -9,71 +9,90 @@ namespace LemonadeStand
     class Customer
     {
 		//member variables (HAS A)
-		int percentChanceToBuy = 100;
-		double temperatureProbability;
-		double conditionProbability;
-		double priceProbability;
-		
-
-
 
 		//constructor
 		public Customer()
         {
-		
         }
 
 		//member methods (CAN DO)
-		public void ChanceToBuyPrice()
+		public bool ChanceToBuy(Day day, double price, int seed)
 		{
+			Random rand = new Random(seed);
+			int chanceToBuy = rand.Next(0, 100);
 
-		}
+			int totalChanceWithModifiers = 50
+				+ ChanceToBuyTemperatureModifer(day.Temperature)
+				+ ChanceToBuyConditionModifier(day.Condition)
+				+ ChanceToBuyPriceModifier(price);
 
-		public double ChanceToBuyTemperature(Day day)
-		{
-			if (day.Temperature<= 70)
+			if(chanceToBuy < totalChanceWithModifiers)
 			{
-				temperatureProbability = percentChanceToBuy * 0.50;
-			}
-			else if (day.Temperature <= 85)
-			{
-				temperatureProbability = percentChanceToBuy * 0.70;
+				return true;
 			}
 			else
 			{
-				temperatureProbability = percentChanceToBuy * 0.80;
+				return false;
 			}
-			return temperatureProbability;
 		}
 
-		public double ChanceToBuyCondition(Day day)
+		public int ChanceToBuyTemperatureModifer(int temperature)
 		{
-			switch (day.Condition)
+			if (temperature <= 70)
+			{
+				return -5;
+			}
+			else if (temperature <= 85)
+			{
+				return 0;
+			}
+			else
+			{
+				return 5;
+			}
+		}
+
+		public int ChanceToBuyConditionModifier(string condition)
+		{
+			switch (condition)
 			{
 				case "rainy":
-					conditionProbability = percentChanceToBuy * 0.40;
-					break;
+					return -15;
 				case "overcast":
-					conditionProbability = percentChanceToBuy * 0.50;
-					break;
+					return -10;
 				case "hazy":
-					conditionProbability = percentChanceToBuy * 0.60;
-					break;
-				case "cloudy":
-					conditionProbability = percentChanceToBuy * 0.70;
-					break;
+					return -5;
 				case "sunny":
-					conditionProbability = percentChanceToBuy * 0.80;
-					break;
+					return 10;
+				case "cloudy":
 				default:
-					break;
+					return 0;
 			}
-			return conditionProbability;
-
 		}
 
-		
-
+		public int ChanceToBuyPriceModifier(double price)
+		{
+			if(price > 1)
+			{
+				return -20;
+			}
+			else if(price > 0.75)
+			{
+				return -10;
+			}
+			else if(price > 0.50)
+			{
+				return -5;
+			}
+			else if(price > 0.25)
+			{
+				return 5;
+			}
+			else
+			{
+				return 10;
+			}
+		}
 	}
 
 }

@@ -82,9 +82,37 @@ namespace LemonadeStand
 			Console.WriteLine("Welcome to Lemonade Stand, the game that lets you own a lemonade stand for 7 days!");
 		}
 
-		public static void DisplayCostMessage()
+		public static double GetPricePerCup()
 		{
-			Console.WriteLine("Now we are going to determine how much you want to charge for each cup of lemonade. Remember: there are 10 cups in each pitcher.");
+			Console.WriteLine("How much would you like to charge per cup of lemonade? Please enter a price that is greater than $0.00." );
+			try
+			{
+				double pricePerCup = Math.Round(double.Parse(Console.ReadLine()), 2);
+				if (pricePerCup > 0)
+				{
+					return pricePerCup;
+				}
+				else 
+				{
+					Console.WriteLine("Please enter a price that is greater than $0.00.");
+					return GetPricePerCup();
+				}
+			}
+			catch (Exception)
+			{
+				Console.WriteLine("Please enter a price that is greater than $0.00.");
+				return GetPricePerCup();
+			}
 		}
-    }
+
+		public static void DisplayDailyProfit(double profit, int numberOfCupsSold)
+		{
+			Console.WriteLine($"Today you made ${profit} and sold {numberOfCupsSold} cups.");
+		}
+
+		public static void DisplayTotalProfit(double runningTotalProfit, int overallNumberOfCupsSold)
+		{
+			Console.WriteLine($"In your 7 days running a lemonande stand you made ${runningTotalProfit} and sold {overallNumberOfCupsSold} cups of lemonade.");
+		}
+	}
 }

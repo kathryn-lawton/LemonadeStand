@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Sugar : Item
+    public class Sugar : Item
     {
-        //member variables
+		//member variables
+		public static double price = 0.05;
+
         public Sugar() :
-			base("sugar", 0.05)
+			base("sugar")
         {
         }
 
