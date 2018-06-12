@@ -35,7 +35,7 @@ namespace LemonadeStand
 					case "ice":
 						ice.Add((Ice)item);
 						break;
-					case "cups":
+					case "cup":
 						cups.Add((Cup)item);
 						break;
 					default:
@@ -44,6 +44,7 @@ namespace LemonadeStand
 				}
 			}
 			Console.WriteLine($"You have increased your {items[0].Name} inventory by {items.Count}.");
+			DisplayInventory();
 		}
 
        //TODO remove method 
@@ -73,7 +74,7 @@ namespace LemonadeStand
 							ice.RemoveAt(0);
 						}
 						break;
-					case "cups":
+					case "cup":
 						for(int i = 0; i < items.Count; i++)
 						{
 							cups.RemoveAt(0);

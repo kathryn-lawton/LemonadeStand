@@ -31,7 +31,7 @@ namespace LemonadeStand
 
 		public double ChanceToBuyTemperature(Day day)
 		{
-			if ( day.Temperature<= 70)
+			if (day.Temperature<= 70)
 			{
 				temperatureProbability = percentChanceToBuy * 0.50;
 			}

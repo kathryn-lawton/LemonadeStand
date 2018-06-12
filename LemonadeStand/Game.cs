@@ -62,7 +62,7 @@ namespace LemonadeStand
 				day.DisplayWeather();
 				player.Recipe.DecideRecipe();
 				player.Inventory.DisplayInventory();
-				player.DecidePurchases();
+				player.DecideIfBuyingItems();
 				day.CreateCustomers();
 
 				

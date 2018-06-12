@@ -24,134 +24,55 @@ namespace LemonadeStand
         }
 
 		//member methods (CAN DO)
-		public void DecidePurchases()
-			
+		public void DecideIfBuyingItems()
 		{
-			bool isValid = false;
-			do
-			{
-				Console.WriteLine($"You currently have ${Money}. Would you like to purchase any items? 'yes' or 'no'.");
-				string input = Console.ReadLine();
-				if (input == "yes")
+				string prompt = $"You currently have ${Money}. Do you want to purchase any items? Please select 'yes' or 'no'.";
+				string response = UserInterface.GetUserYesOrNo(prompt);
+				if (response == "yes")
 				{
-					PurchaseItems();
-					isValid = true;
+					string item = UserInterface.GetUserItem();
+					BuyItem(item);
 				}
-				else if (input == "no")
-				{
-					isValid = true;
-				}
-				else
-				{
-					Console.WriteLine("Please enter valid input.");
-				}
-				
-			} while (!isValid);
 		}
-
-		private void PurchaseItems()
-		{
-			bool isValid = false;
-			do
-			{
-				string input = UserInterface.GetUserItem();
-				switch (input)
-				{
-					case "lemon":
-					case "sugar":
-					case "ice":
-					case "cup":
-						isValid = true;
-						BuyItem(input);
-						break;
-					default:
-						isValid = false;
-						Console.WriteLine("Please choose a valid input.");
-						break;
-				}
-			} while (!isValid);
-		}
-
-		//loop to buy additional items
 
 		public void BuyItem(string itemName)
 		{
-			// TODO, Add logic for money - how much money player has to spend
-			bool isValidPurchase = false;
-			do
+			string prompt = $"How many items would you like to purchase? Please enter a number greater than or equal to 0.";
+			int numberOfItems = UserInterface.GetUserPositiveNumber(prompt);
+
+			List<Item> items = new List<Item>();
+			for(int i = 0; i < numberOfItems; ++i)
 			{
-				try
+				switch (itemName)
 				{
-					Console.WriteLine($"How many items would you like to purchase? Please enter a number greater than or equal to 0.");
-					int numberOfItems = int.Parse(Console.ReadLine());
-
-					List<Item> items = new List<Item>();
-					for(int i = 0; i < numberOfItems; ++i)
-					{
-						switch (itemName)
-						{
-							case "lemon":
-								items.Add(new Lemon());
-								break;
-							case "sugar":
-								items.Add(new Sugar());
-								break;
-							case "ice":
-								items.Add(new Ice());
-								break;
-							case "cup":
-								items.Add(new Cup());
-								break;
-							default:
-								break;
-						}
-					}
-
-					if(items.Count > 0)
-					{
-						// TODO, check money method
-						if(items[0].Price * numberOfItems > Money)
-						{
-							isValidPurchase = false;
-							Console.WriteLine($"You do not have enough money to buy {numberOfItems} {itemName}. It costs {items[0].Price * numberOfItems} and you have {Money}");
-						}
-						else
-						{
-							Money -= items[0].Price * numberOfItems;
-							Console.WriteLine($"You have ${Money} after your purchase.");
-
-							Inventory.AddItems(items); // Say the updated items
-							isValidPurchase = true;
-						}
-					}
-					else if(items.Count == 0 && numberOfItems == 0)
-					{
-						isValidPurchase = true;
-					}
+					case "lemon":
+						items.Add(new Lemon());
+						break;
+					case "sugar":
+						items.Add(new Sugar());
+						break;
+					case "ice":
+						items.Add(new Ice());
+						break;
+					case "cup":
+						items.Add(new Cup());
+						break;
 				}
-				catch (Exception)
-				{
-					Console.WriteLine("Please enter a valid number.");
-				}
-
-			} while (!isValidPurchase);
-
-			Console.WriteLine($"Your purchase was successful");
-
-			Console.WriteLine("Would you like to purchase additional items? Please enter 'yes' or 'no'.");
-			string input = Console.ReadLine();
-			if(input == "yes")
-			{
-				PurchaseItems();
 			}
-			else if (input == "no")
-			{
 
+			if(items[0].Price * numberOfItems > Money)
+			{
+				Console.WriteLine($"You do not have enough money to buy {numberOfItems} {itemName}. It costs ${items[0].Price * numberOfItems} and you have ${Money}.");
 			}
 			else
 			{
-				Console.WriteLine("Please enter valid input.");
+				Money -= items[0].Price * numberOfItems;
+				Console.WriteLine($"You have ${Money} after your purchase.");
+
+				Inventory.AddItems(items); 
 			}
+
+			DecideIfBuyingItems();
 		}
 
 		//public void DeterminePricePerCup()

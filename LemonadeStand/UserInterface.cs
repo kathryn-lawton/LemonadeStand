@@ -18,7 +18,7 @@ namespace LemonadeStand
 			do
 			{
 				Console.WriteLine("Please choose an item: 'lemon', 'sugar', 'ice', or 'cup'.");
-				string input = Console.ReadLine();
+				string input = Console.ReadLine().ToLower();
 				switch (input)
 				{
 					case "lemon":
@@ -34,6 +34,47 @@ namespace LemonadeStand
 			} while (itemName == string.Empty);
 
 			return itemName;
+		}
+
+		public static string GetUserYesOrNo(string prompt)
+		{
+			string response = string.Empty;
+			
+			Console.WriteLine(prompt);
+			string input = Console.ReadLine().ToLower();
+			if (input == "yes" || input == "no")
+			{
+				return input;
+			}
+			else
+			{
+				Console.WriteLine("Please enter valid input.");
+				return GetUserYesOrNo(prompt);
+			}
+		}
+
+		public static int GetUserPositiveNumber(string prompt)
+		{
+			int positiveNumber = 0;
+			Console.WriteLine(prompt);
+			try
+			{
+				positiveNumber = int.Parse(Console.ReadLine());
+				if (positiveNumber > 0)
+				{
+					return positiveNumber;
+				}
+				else
+				{
+					Console.WriteLine("Please enter a number that is greater than 0.");
+					return GetUserPositiveNumber(prompt);
+				}
+			}
+			catch (Exception)
+			{
+				Console.WriteLine("Please enter a number that is greater than 0.");
+				return GetUserPositiveNumber(prompt);
+			}
 		}
 
 		public static void DisplayGameInstructions()
