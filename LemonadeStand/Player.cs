@@ -37,10 +37,13 @@ namespace LemonadeStand
 
 		public void BuyItem(string itemName)
 		{
+			double price = 0;
+			Console.WriteLine($"Prices: ${Lemon.price} per lemon, ${Sugar.price} per sugar, ${Ice.price} per ice, ${Cup.price} per cup." );
+
 			string prompt = $"How many items would you like to purchase? Please enter a number greater than or equal to 0.";
 			int numberOfItems = UserInterface.GetUserPositiveNumber(prompt);
 
-			double price = 0;
+			
 			List<Item> items = new List<Item>();
 			for(int i = 0; i < numberOfItems; ++i)
 			{

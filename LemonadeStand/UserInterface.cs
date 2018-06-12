@@ -9,8 +9,7 @@ namespace LemonadeStand
     public static class UserInterface
     {
         //member methods (CAN DO)
-        //welcome player
-        //print instructions
+    
 
 		public static string GetUserItem()
 		{
@@ -79,7 +78,16 @@ namespace LemonadeStand
 
 		public static void DisplayGameInstructions()
 		{
-			Console.WriteLine("Welcome to Lemonade Stand, the game that lets you own a lemonade stand for 7 days!");
+			Console.WriteLine("Welcome to Lemonade Stand! Where you have 7 days to sell lemonade and make as much money as possible!\n" +
+				"You’ll have complete control over your business, including pricing, quality control, inventory control, and purchasing\n" +
+				"supplies. The first thing you’ll have to worry about is your recipe. At first, go with the default recipe,\n" +
+				"but feel free to put your own twist on it.Make sure you buy enough of all your ingredients, or you won’t be able \n" +
+				"to sell lemonade! The weather will also factor into whether or not customers decide to buy your lemonade.\n" +
+				"Make sure you read the weather report every day! When the temperature drops, or the weather condition\n" + 
+				"is less inviting (overcast, cloudy, rainy), don’t expect customers to buy nearly as much as they would \n" +
+				"on a hot day that is sunny or hazy. Feel free to set your prices higher \n" +
+				"on those hot, muggy days too, as you’ll make more profit, even if you sell less lemonade. \n" +
+				"At the end of 7 days you’ll see how much money you made. Remember, with great lemonade comes great responsibility!\n");
 		}
 
 		public static double GetPricePerCup()

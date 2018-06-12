@@ -50,7 +50,10 @@ namespace LemonadeStand
 
 		public void RunGame()
 		{
-			// Create Player
+			UserInterface.DisplayGameInstructions();
+			Console.ReadLine();
+			Console.Clear();
+
 			string playerName = GetPlayerName();
 			player = new Player(playerName);
 

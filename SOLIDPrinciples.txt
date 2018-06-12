@@ -1,0 +1,21 @@
+Single Responsibility Principle:
+
+In my Lemonade Stand program, I implemented a static UserInterface class wbere my methods 
+either display a message or return input from the player. My static GetUserYesOrNo() method 
+follows the single responsibility principle as it it is only responsible for doing one thing.
+I use this method to get user input, make sure the input is valid, and return the input if it is
+valid.
+
+Open/Close Principle:
+
+I have an abstract parent class that has four children classes: lemon, sugar, ice, cup. 
+In my code, when the game player needs to  buy an item (i.e. add an item to inventory) 
+I did so by making a list of item objects and creating an object each time they
+need to add one. For example, when the player needs to buy 1 lemon, I add 1 new lemon object
+to my List <Lemon> lemons. When the player needs to make a pitcher (i.e. remove an item from 
+inventory), I remove the number of item objects from the list. This illustrates the open/close 
+principle because all of the lemons/sugar/ice/cups the player is buying and using to 
+make lemonade has the member variables from the parent class. If i needed to add a variable 
+such as shelf life and say that certain items spoiled after a certain amount of days, I could
+easily do so and extend the code's functionality. 
+

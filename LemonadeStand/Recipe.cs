@@ -28,7 +28,8 @@ namespace LemonadeStand
 			bool isValid = false;
 			do
 			{
-				Console.WriteLine($"Your current recipe needs {this.numberOfLemons} lemons, {this.numberOfSugar} sugar, and {this.numberOfIce} ice. Would you like to use this recipe or create a new recipe? Please enter 'same' or 'new'.");
+				Console.WriteLine($"Your current recipe needs {this.numberOfLemons} lemons, {this.numberOfSugar} sugar, and {this.numberOfIce} ice.\n" +
+					"Would you like to use this recipe or create a new recipe? Please enter 'same' or 'new'.");
 				string input = Console.ReadLine();
 
 				if (input == "new")
