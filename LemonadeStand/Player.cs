@@ -8,13 +8,11 @@ namespace LemonadeStand
 {
     public class Player
     {
-        //member variables (HAS A)
         public string Name { get; set; }
         public Inventory Inventory { get; set; }
         public Recipe Recipe { get; set; }
 		public double Money { get; set; }
 
-		//constructor
 		public Player(string playerName)
         {
             this.Name = playerName;
@@ -23,7 +21,6 @@ namespace LemonadeStand
 			this.Money = 20.00;
         }
 
-		//member methods (CAN DO)
 		public void DecideIfBuyingItems()
 		{
 				string prompt = $"You currently have ${Money}. Do you want to purchase any items? Please select 'yes' or 'no'.";

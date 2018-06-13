@@ -8,14 +8,11 @@ namespace LemonadeStand
 {
     class Customer
     {
-		//member variables (HAS A)
 
-		//constructor
 		public Customer()
         {
         }
 
-		//member methods (CAN DO)
 		public bool ChanceToBuy(Day day, double price, int seed)
 		{
 			Random rand = new Random(seed);
@@ -94,5 +91,4 @@ namespace LemonadeStand
 			}
 		}
 	}
-
 }

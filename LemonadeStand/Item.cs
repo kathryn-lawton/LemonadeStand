@@ -8,13 +8,11 @@ namespace LemonadeStand
 {
     public abstract class Item
     {
-        //member variables
         public string Name { get; set; }
 
         public Item(string name)
         {
 			this.Name = name;
         }
-        //member methods
     }
 }

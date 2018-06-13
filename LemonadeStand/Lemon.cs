@@ -8,13 +8,11 @@ namespace LemonadeStand
 {
     public class Lemon : Item
     {
-		//member variables
 		public static double price = 0.20;
 
         public Lemon() : 
 			base("lemon")
         {
         }
-        //member methods
     }
 }

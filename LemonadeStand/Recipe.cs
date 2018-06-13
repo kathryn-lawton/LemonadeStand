@@ -8,12 +8,10 @@ namespace LemonadeStand
 {
     public class Recipe
     {
-		//mv
 		public int numberOfLemons;
 		public int numberOfIce;
 		public int numberOfSugar;
 		
-
         public Recipe()
         {
 			this.numberOfLemons = 4;
@@ -22,7 +20,6 @@ namespace LemonadeStand
 			
         }
 
-        //mm
 		public void DecideRecipe()
 		{
 			bool isValid = false;
@@ -84,6 +81,5 @@ namespace LemonadeStand
 		{
 			return numberOfLemons * Lemon.price + numberOfSugar * Sugar.price + numberOfIce * Ice.price;
 		}
-
 	}
 }

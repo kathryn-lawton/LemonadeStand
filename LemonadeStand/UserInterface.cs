@@ -8,9 +8,7 @@ namespace LemonadeStand
 {
     public static class UserInterface
     {
-        //member methods (CAN DO)
     
-
 		public static string GetUserItem()
 		{
 			string itemName = string.Empty;
@@ -120,7 +118,7 @@ namespace LemonadeStand
 
 		public static void DisplayTotalProfit(double runningTotalProfit, int overallNumberOfCupsSold)
 		{
-			Console.WriteLine($"In your 7 days running a lemonande stand you made ${runningTotalProfit} and sold {overallNumberOfCupsSold} cups of lemonade.");
+			Console.WriteLine($"In your 7 days running a lemonande stand you made ${runningTotalProfit} and your stand sold {overallNumberOfCupsSold} cups of lemonade.");
 		}
 	}
 }

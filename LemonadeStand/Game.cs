@@ -12,24 +12,17 @@ namespace LemonadeStand
         public Player player;
 		public List<Day> days = new List<Day>();
 		public Weather weather;
-
-
 		private List<string> daysOfTheWeek = new List<string> { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
-
-	
-        //constructor
+		
         public Game()
         {
 			this.weather = new Weather();
-			
-			// Create a week
+
 			foreach(string dayName in daysOfTheWeek)
 			{
 				days.Add(new Day(dayName, this.weather));
 			} 
         }
-
-        //member methods (CAN DO)
         
         public string GetPlayerName()
         {
@@ -57,7 +50,6 @@ namespace LemonadeStand
 			string playerName = GetPlayerName();
 			player = new Player(playerName);
 
-			// Forecast
 			GetWeatherForecast();
 
 			double runningTotalProfit = 0;

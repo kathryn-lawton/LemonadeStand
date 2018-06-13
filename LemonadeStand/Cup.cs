@@ -8,14 +8,11 @@ namespace LemonadeStand
 {
      public class Cup : Item
     {
-		//mv
 		public static double price = 0.01;
 
 		public Cup() :
 			base("cup")
         {
         }
-
-        //mm
     }
 }

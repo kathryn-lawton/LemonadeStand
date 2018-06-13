@@ -8,17 +8,13 @@ namespace LemonadeStand
 {
     class Weather
     {
-        //member variables (HAS A)
         public List<string> conditions = new List<string>() { "sunny", "hazy", "cloudy", "overcast", "rainy" };
 		private Random Random { get; set; }
 
-		//constructor
 		public Weather()
         {
 			this.Random = new Random();
         }
-
-        //member methods (CAN DO)
 
         public string CreateDailyCondition()
         {
